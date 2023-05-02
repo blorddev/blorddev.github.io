@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>خامنه ای اسکل</title>
+    <style>
+      body {
+        background-color: #111;
+        color: #eee;
+      }
+      h1 {
+        text-align: center;
+        font-size: 48px;
+        background: linear-gradient(
+          to right,
+          #ff0000,
+          #ffa500,
+          #ffff00,
+          #008000,
+          #0000ff,
+          #4b0082,
+          #8b00ff
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbow 2s ease-in-out infinite;
+      }
+      .show {
+        background-color: yellowgreen;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        transition: 0.2s;
+        opacity: 1;
+      }
+      .show:hover {
+        box-shadow: 0px 0px 15px 5px yellowgreen;
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 50px;
+        border-radius: 10px;
+        animation: popup 1s;
+        display: none;
+        z-index: 1;
+      }
+      .popup-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.2s;
+        background-color: #ff4136;
+        z-index: 2;
+      }
+
+      .popup-button:hover {
+        box-shadow: 0px 0px 15px 5px #ff4136;
+      }
+
+      @keyframes popup {
+        0% {
+          transform: translate(-50%, -150%);
+        }
+        100% {
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      #first {
+        display: none;
+        margin: auto;
+        z-index: 10;
+        height: 35vh;
+      }
+
+      #second {
+        display: none;
+        margin: auto;
+        z-index: 10;
+        height: 39vh;
+      }
+
+      #goback {
+        display: none;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.2s;
+        background-color: #ff4136;
+        z-index: 2;
+      }
+
+      #goback:hover {
+        box-shadow: 0px 0px 15px 5px #ff4136;
+      }
+    </style>
+  </head>
+  <body>
+    <audio autoplay>
+      <source src="imam.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <h1 id="main">خامنه ای اسکل</h1>
+    <button onclick="showPopup()" class="show" id="show">
+      ویژگی هاش رو نشون بده
+    </button>
+    <div class="popup" id="popup">
+      <p>:ویژگی های این اسکل عبارتند از</p>
+      <ul>
+        <li>احمق بودن</li>
+        <li>نگا استیل گنگو نگا ترکیب و رنگو</li>
+        <li>عمامه</li>
+      </ul>
+      <button class="popup-button popup-leave-button" onclick="showPic()">
+        عکس ازش نشون بده
+      </button>
+    </div>
+    <img
+      src="https://s3.amazonaws.com/bala.static/links/bcdedae1-0045-401e-a991-16c78ca447e1.jpg"
+      id="first"
+    />
+    <img
+      src="https://idc0-cdn0.khamenei.ir/ndata/news/26547/C/13930307_0126547.jpg"
+      id="second"
+    />
+    <button id="goback" onclick="goback()">برگرد</button>
+    <script>
+      function showPopup() {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("show").style.display = "none";
+        document.querySelector("#popup").style.display = "block";
+      }
+
+      function showPic() {
+        document.getElementById("first").style.display = "block";
+        document.getElementById("second").style.display = "block";
+        document.getElementById("goback").style.display = "block";
+        document.querySelector("#popup").style.display = "none";
+      }
+
+      function goback() {
+        document.getElementById("first").style.display = "none";
+        document.getElementById("second").style.display = "none";
+        document.getElementById("goback").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("show").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
